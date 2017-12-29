@@ -1,0 +1,22 @@
+{
+  "name": "css3support",
+  "version": "1.0.0",
+  "description": "css3 support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangbo5207/css3support.git"
+  },
+  "keywords": [
+    "css3support"
+  ],
+  "author": "18301022997@qq.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangbo5207/css3support/issues"
+  },
+  "homepage": "https://github.com/yangbo5207/css3support#readme"
+}
