@@ -36,10 +36,11 @@ export const toFirstUpperCase = str => {
 };
 
 // 获取浏览器支持的css3前缀
-export const getCssPrefix = () => {
+export const getCssPrefix = (attr) => {
+  let attr = attr ? attr : 'transform';
   let prefix = '';
   for (var i = 0; i < cssPrefix.length; i++) {
-    if (camelCase(`${cssPrefix[i]}transform`) in div.style) {
+    if (camelCase(`${cssPrefix[i]}${attr}`) in div.style) {
       return cssPrefix[i];
     }
   }
@@ -62,7 +63,7 @@ export const getCapitalPrefix = () => {
 // 获取css属性对应的浏览器支持的js特性值  transform -> transform || WebkitTransform
 export const getAttrName = attr => {
   let prop = camelCase(attr);
-  let _prop = camelCase(`${getCssPrefix}attr`);
+  let _prop = camelCase(`${getCssPrefix(attr)}attr`);
   return (prop in div.style && prop) || _prop in div.style || '';
 };
 
@@ -99,15 +100,6 @@ export const cancelFrame =
   window.mozCancelRequestAnimationFrame ||
   window.msCancelRequestAnimationFrame ||
   clearTimeout;
-
-export const getAnimationEnd = () => {
-  const prefix = getCapitalPrefix();
-  if (prefix) {
-    return `${getCapitalPrefix()}AnimationEnd`;
-  }
-
-  return 'animationend';
-};
 
 export const getStyle = (elem, attr) => {
   return window.getComputedStyle
